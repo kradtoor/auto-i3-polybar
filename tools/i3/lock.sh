@@ -12,10 +12,10 @@ case "$1" in
         kill -9 -1
         ;;
     suspend)
-        lock && systemctl suspend
+        systemctl suspend && lock
         ;;
     hibernate)
-        lock && systemctl hibernate
+        systemctl hibernate && lock
         ;;
     reboot)
         systemctl reboot
