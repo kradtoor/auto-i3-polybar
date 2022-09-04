@@ -46,6 +46,7 @@ Se ha testeado este script en Parrot-security-5.0.1.
 <kbd>Windows</kbd> + <kbd>Ctrl</kbd> + <kbd>(⬆⬅⬇➡)</kbd> : Cambia la posición de la ventana actual (solo funciona en modo flotante).  
 <kbd>Windows</kbd> + <kbd>Ctrl</kbd> + <kbd>Alt</kbd> + <kbd>(⬆⬅⬇➡)</kbd> : Muestra una preselección para luego abrir una aplicación.  
 <kbd>Windows</kbd> + <kbd>Ctrl</kbd> + <kbd>Space</kbd> para deshacer la preselección.  
+<kbd>Windows</kbd> + <kbd>Shift</kbd> + <kbd>v</kbd> para listar elementos del portapapeles (integrado con rofi).  
 
 ## Commands:
 - **Abrir imagen en el terminal**:

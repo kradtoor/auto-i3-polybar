@@ -133,6 +133,7 @@ def polybar():
     os.system("sudo cp -r tools/scripts/* /bin")
     os.system("sudo chmod +x /bin/settarget")
     os.system("sudo chmod +x /bin/cleartarget")
+    os.system("sudo chmod +x /bin/greenclip")
 
     # Config for kitty
     os.system("rm -rf ~/.config/kitty")

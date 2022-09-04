@@ -289,3 +289,6 @@ exec_always --no-startup-id sh $HOME/.config/polybar/launch.sh
 
 bindsym $mod+l exec --no-startup-id sh $HOME/.config/i3/lock.sh suspend
 
+#Clipboard greenclip
+exec --no-startup-id greenclip daemon &&
+bindsym $mod+Shift+v exec --no-startup-id exec rofi -modi "clipboard:greenclip print" -show clipboard -run-command '{cmd}'
