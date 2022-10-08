@@ -39,6 +39,8 @@ banner = """
  '----------------'  '----------------' 
 """
 
+cwd = os.getcwd()
+
 def menu():
     red()
     print(banner)
@@ -73,9 +75,9 @@ def i3():
     green()
 
     # Create folder for i3  inside of ~/.config
-    os.system("cp -r tool/i3 ~/.config/")
+    os.system("cp -r tools/i3 ~/.config/")
     time.sleep(2)
-    print("\n[+] Bspwm instalado correctamente")
+    print("\n[+] i3 instalado correctamente")
 
 def polybar():
     green()
@@ -88,6 +90,8 @@ def polybar():
     os.system("sudo make install")
     os.chdir("..")
     os.system("sudo rm -rf polybar/")
+    os.system("sudo rm -rf ~/.config/polybar")
+    os.system("cp -r tools/polybar ~/.config/")
 
     # Install picom
     os.system("git clone https://github.com/ibhagwan/picom")
@@ -114,13 +118,10 @@ def polybar():
     if expback.casefold() == "n":
         os.system("cp tools/picom-blur.conf ~/.config/picom/picom.conf")
 
-
     # Config for battery.sh ethernet_status.sh hackthebox.sh target_to_hack.sh inside of ~/.config/bin
-    os.chdir("tools/bin/")
-    os.system("chmod +x *.sh")
-    os.system("cp -r bin/ ~/.config/")
+    os.system("chmod +x tools/bin/*.sh")
+    os.system("cp -r tools/bin/ ~/.config/")
     os.system("echo '' > ~/.config/bin/target")
-    os.chdir("..")
 
      # Configure rofi
     os.system("rm -rf ~/.config/rofi")
@@ -159,6 +160,7 @@ def polybar():
     os.system("cp tools/functions ~/.functions")
 
     # Install lsd
+    os.system("chmod +x tools/lsd.deb")
     os.system("sudo dpkg -i tools/lsd.deb")
 
     # Install oh-my-zsh
@@ -168,6 +170,7 @@ def polybar():
     os.system("git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions")
     os.system("git clone https://github.com/zsh-users/zsh-completions ${ZSH_CUSTOM:-${ZSH:-~/.oh-my-zsh}/custom}/plugins/zsh-completions")
     os.system("git clone https://github.com/zsh-users/zsh-syntax-highlighting ${ZSH_CUSTOM:-${ZSH:-~/.oh-my-zsh}/custom}/plugins/zsh-syntax-highlighting")
+    os.chdir(cwd)
     os.system("cp tools/zshrc ~/.zshrc")
 
     # Configure default manager
@@ -176,14 +179,14 @@ def polybar():
 
     time.sleep(2)
     print("\n[+] Polybar instalado correctamente.")
-    print("Presione cualquier tecla para cerrar la sesión.")
+    print("Presione < enter > para cerrar la sesión.")
 
     input()
     os.system("sudo kill -9 -1")
 
 if __name__ == '__main__':
     id = os.getuid()
-    
+
     if id == 0:
         red()
         print()

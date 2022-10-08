@@ -3,7 +3,7 @@
 target=$(cat ~/.config/bin/target)
 
 if [ -n "$target" ]; then
-    echo "%{F#FFAF60} ﲅ%{F#ffffff} $target %{u-}"
+    echo "%{F#CFC77C} 什%{F#ffffff} $target %{u-}"
 else
-    echo "%{u-} %{F#A44BA0}ﲅ%{F#ffffff} No target "
+    echo "%{u-} %{F#808080}什%{F#808080} No target "
 fi

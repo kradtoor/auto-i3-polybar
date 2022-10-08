@@ -13,29 +13,37 @@ awesomebrands = FontAwesome5Brands:style=Solid:size=10:antialias=false;3
 
 [colors]
 white = #FFFFFF
-light-red = #D95B5B
-light-green = #249824
-light-purple = #A44BA0
-
-menucol-yellow = #F7F272
-menucol-blue = #1771F1
-menucol-orange = #FFAF60
-menucol-red = #F85C50
-menucol-green = #77BD8B
-menucol-sealine = #00CF91
-menucol-purple = #9A76B3
-menucol-pink = #FF77BF
-menucol-deepblue = #6560FF
-menucol-lightblue = #60FFF7
-
+gray = #808080
+green = #59981A
+olive = #81B622
 fav-purple = #6633FF
+light = #eee
+light-purple = #A44BA0
+light-red = #D95B5B
+light-gray = #D3D3D3
 dark = #111
 dark-red = #311
 dark-green = #131
 dark-purple = #201134
-light = #eee
-gray = #999
 dark-gray = #333
+
+menucol-yellow = #FEF185
+menucol-blue = #1771F1
+menucol-gold = #C4A000
+menucol-orange = #EAA573
+menucol-red = #CF6464
+menucol-green = #77BD8B
+menucol-sealine = #00CF91
+menucol-purple = #AD7FA8
+menucol-pink = #FF77BF
+menucol-deepblue = #6560FF
+menucol-lightblue = #87D2B3
+menucol-darkblue = #3BCD91
+menucol-darkred = #C53939
+menucol-darkorange = #CD7229
+menucol-darkpurple = #5C3566
+menucol-darkgreen = #4E9A06
+menucol-darkyellow = #C4A000
 
 ;---------------------------------------------------------------------------------------------------
 ;Main bar
@@ -45,12 +53,12 @@ override-redirect = false
 
 bottom = false
 width = 100%
-height = 22 ;px
+height = 16 ;px
 
 background = ${colors.dark}
 foreground = ${colors.light}
 
-line-color = ${colors.light-purple}
+line-color = ${colors.dark-gray}
 line-size = 2
 
 separator = "   "
@@ -85,10 +93,10 @@ modules-right = target_to_hack date powermenu
 ;Kill Apps
 [module/xkillapp]
 type = custom/text
-content = "  "
+content = "  "
 content-font = 2
-content-foreground = ${colors.menucol-white}
-content-underline = ${colors.menucol-red}
+content-foreground = ${colors.menucol-red}
+content-underline = ${colors.menucol-darkred}
 
 click-left = sleep 0.5 && xkill > /dev/null 2>&1 &
 
@@ -110,7 +118,7 @@ type = custom/script
 interval = 2
 exec = ~/.config/bin/hackthebox.sh
 label-font = 2
-format-underline = ${colors.menucol-green}
+format-underline = ${colors.menucol-darkgreen}
 
 
 ;---------------------------------------------------------------------------------------------------
@@ -127,12 +135,12 @@ icon-default = ∙
 format = <label-state>
 format-padding = 0
 
-label-active = " %index% "
-label-active-foreground = ${colors.light-red}
+label-active = "  "
+label-active-foreground = ${colors.menucol-purple}
 label-active-background = ${colors.dark}
 
-label-occupied = " %index% "
-label-occupied-foreground = ${colors.menucol-yellow}
+label-occupied = " . "
+label-occupied-foreground = ${colors.menucol-darkpurple}
 label-occupied-background = ${colors.dark}
 
 
@@ -143,7 +151,7 @@ type = custom/script
 interval = 2
 exec = ~/.config/bin/target_to_hack.sh
 label-font = 2
-format-underline = ${colors.menucol-orange}
+format-underline = ${colors.menucol-darkyellow}
 
 
 ;---------------------------------------------------------------------------------------------------
@@ -157,10 +165,10 @@ date = %b %e
 date-alt = %A, %B %d, %Y
 time-alt = %H:%M:%S
 
-format-prefix = " "
+format-prefix = " "
 format-padding = 1
-format-underline = ${colors.menucol-lightblue}
 format-foreground = ${colors.menucol-lightblue}
+format-underline = ${colors.menucol-darkblue}
 interval = 20
 
 label = %date% | %time%
@@ -173,10 +181,10 @@ label-foreground = ${colors.light}
 [module/powermenu]
 type = custom/text
 
-content = "  "
+content = "  "
 content-font = 2
-content-foreground = ${colors.menucol-red}
-content-underline = ${colors.menucol-red}
+content-foreground = ${colors.menucol-orange}
+content-underline = ${colors.menucol-darkorange}
 click-left = sh ~/.config/i3/powermenu.sh
 
 
@@ -210,8 +218,8 @@ content =  s
 content-font = 7
 content-padding = 2
 click-left = sh ~/.config/i3/settings.sh
-format-underline = ${colors.menucol-orange}
-format-foreground = ${colors.menucol-orange}
+format-underline = ${colors.menucol-gold}
+format-foreground = ${colors.menucol-gold}
 
 
 ;---------------------------------------------------------------------------------------------------
@@ -348,11 +356,11 @@ full-at = 100
 
 format-charging = <animation-charging> <label-charging>
 format-charging-padding = 2
-format-charging-underline = ${colors.menucol-orange}
+format-charging-underline = ${colors.menucol-gold}
 
 format-discharging = <animation-discharging> <label-discharging>
 format-discharging-padding = 2
-format-discharging-underline = ${colors.menucol-orange}
+format-discharging-underline = ${colors.menucol-gold}
 
 label-charging = %percentage%
 label-charging-font = 3
@@ -366,7 +374,7 @@ animation-charging-2 = 
 animation-charging-3 = 
 animation-charging-4 = 
 animation-charging-framerate = 750
-animation-charging-foreground = ${colors.menucol-orange}
+animation-charging-foreground = ${colors.menucol-gold}
 
 animation-discharging-0 = 
 animation-discharging-1 = 
@@ -379,7 +387,7 @@ animation-discharging-7 = 
 animation-discharging-8 = 
 animation-discharging-9 = 
 animation-discharging-framerate = 750
-animation-discharging-foreground = ${colors.menucol-orange}
+animation-discharging-foreground = ${colors.menucol-gold}
 
 
 ;---------------------------------------------------------------------------------------------------
